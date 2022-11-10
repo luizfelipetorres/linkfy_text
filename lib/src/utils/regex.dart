@@ -4,7 +4,7 @@ String urlRegExp = r'(?:(?:https?|ftp):\/\/)?[\w/\-?=%.]+\.[\w/\-?=%.]+';
 
 String hashtagRegExp = r'(#+[a-zA-Z0-9(_)]{1,})';
 
-String userTagRegExp = r'(?<![\w@])@([\w@]+(?:[.!][\w@]+)*)';
+String userTagRegExp = r'(?<![\w@])@([\w@À-ú]+(?:[.!][\w@]+)*)';
 
 String emailRegExp =
     r"([a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+)";
@@ -51,10 +51,10 @@ LinkType getMatchedType(String match) {
     type = LinkType.email;
   } else if (RegExp(userTagRegExp).hasMatch(match)) {
     type = LinkType.userTag;
-  }else if (RegExp(urlRegExp).hasMatch(match)) {
+  } else if (RegExp(urlRegExp).hasMatch(match)) {
     type = LinkType.url;
   } else if (RegExp(hashtagRegExp).hasMatch(match)) {
     type = LinkType.hashTag;
-  } 
+  }
   return type;
 }
